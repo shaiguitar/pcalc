@@ -1,0 +1,403 @@
+------------------------------------------------------------------------
+r1 | vapier | 2007-05-23 18:11:13 -0400 (Wed, 23 May 2007) | 1 line
+Changed paths:
+   A /branches
+   A /tags
+   A /trunk
+   A /trunk/DISCAIMER
+   A /trunk/EXAMPLE
+   A /trunk/Makefile
+   A /trunk/README
+   A /trunk/convert.c
+   A /trunk/convert.h
+   A /trunk/funct.c
+   A /trunk/help.c
+   A /trunk/help.h
+   A /trunk/hocdecl.h
+   A /trunk/math.c
+   A /trunk/pack
+   A /trunk/pcalc
+   A /trunk/pcalc.c
+   A /trunk/pcalc.h
+   A /trunk/pcalc.lsm
+   A /trunk/pcalc.mak
+   A /trunk/pcalc.map
+   A /trunk/pcalc.old
+   A /trunk/pcalc.tab.c
+   A /trunk/pcalc.tab.h
+   A /trunk/pcalc.txt
+   A /trunk/pcalc.y
+   A /trunk/pcalcl.c
+   A /trunk/pcalcl.l
+   A /trunk/print.c
+   A /trunk/print.h
+   A /trunk/ptest
+   A /trunk/ptest/pcalc.001
+   A /trunk/ptest/pcalc.002
+   A /trunk/ptest/pcalc.003
+   A /trunk/ptest/pcalc.004
+   A /trunk/ptest/pcalc.005
+   A /trunk/ptest/pcalc.006
+   A /trunk/ptest/pcalc.007
+   A /trunk/ptest/pcalc.008
+   A /trunk/ptest/pcalc.009
+   A /trunk/ptest/pcalc.010
+   A /trunk/ptest/pcalc.011
+   A /trunk/ptest/pcalc.var
+   A /trunk/skelcom.h
+   A /trunk/skeleton.c
+   A /trunk/skeleton.h
+   A /trunk/store.c
+   A /trunk/store.h
+   A /trunk/str.c
+   A /trunk/str.h
+   A /trunk/symbol.c
+   A /trunk/symbol.h
+   A /trunk/testdat
+   A /trunk/testdata
+   A /trunk/testorig
+   A /trunk/win32
+   A /trunk/win32/demo.bat
+   A /trunk/win32/makeall.bat
+   A /trunk/win32/makesed.bat
+   A /trunk/win32/pcalc.exe
+   A /trunk/win32/ready.bat
+   A /trunk/win32/tst.bat
+
+import original pcalc release
+------------------------------------------------------------------------
+r3 | vapier | 2007-06-21 23:13:41 -0400 (Thu, 21 Jun 2007) | 1 line
+Changed paths:
+   D /trunk/DISCAIMER
+   A /trunk/DISCLAIMER (from /trunk/DISCAIMER:2)
+
+fix spelling typo in name
+------------------------------------------------------------------------
+r4 | vapier | 2007-06-21 23:19:38 -0400 (Thu, 21 Jun 2007) | 1 line
+Changed paths:
+   A /trunk/AUTHORS
+   A /trunk/COPYING
+   D /trunk/DISCLAIMER
+   M /trunk/EXAMPLE
+   M /trunk/README
+   D /trunk/pcalc.lsm
+
+touchup supplementary files
+------------------------------------------------------------------------
+r5 | vapier | 2007-06-21 23:53:22 -0400 (Thu, 21 Jun 2007) | 1 line
+Changed paths:
+   M /trunk/funct.c
+   M /trunk/pcalc.y
+   M /trunk/print.c
+   M /trunk/store.c
+
+declare all the work_str vars static since they'll conflict badly with each other if we don't.  pcalc.y doesn't actually use work_str.
+------------------------------------------------------------------------
+r6 | vapier | 2007-06-21 23:58:19 -0400 (Thu, 21 Jun 2007) | 1 line
+Changed paths:
+   M /trunk/pcalc.y
+
+We can't use execerror yet because it assumes the jumpbuf has been setup which it hasn't just yet.  Dump errors with fprintf to stderr instead.
+------------------------------------------------------------------------
+r7 | vapier | 2007-06-21 23:59:27 -0400 (Thu, 21 Jun 2007) | 1 line
+Changed paths:
+   M /trunk/pcalc.y
+
+Fix the tempfile handling to avoid race conditions.  Also use /tmp as a fallback if $PWD is read-only for whatever reason.
+------------------------------------------------------------------------
+r8 | vapier | 2007-06-22 00:00:32 -0400 (Fri, 22 Jun 2007) | 1 line
+Changed paths:
+   M /trunk/pcalc.y
+
+Make sure we don't blow up if the user enters a lot of stuff (buff is normally a char[512], so if user gives us 5000 chars ...).  Also trim unused/duplicated variables.
+------------------------------------------------------------------------
+r9 | vapier | 2007-06-22 00:01:15 -0400 (Fri, 22 Jun 2007) | 1 line
+Changed paths:
+   M /trunk/funct.c
+   M /trunk/str.c
+
+Make sure we don't overflow buffers if input is really big.  Also move the string array to local scope.
+------------------------------------------------------------------------
+r10 | vapier | 2007-06-22 00:01:46 -0400 (Fri, 22 Jun 2007) | 1 line
+Changed paths:
+   M /trunk/Makefile
+   M /trunk/pcalcl.l
+
+Tweaks so pcalc will build with flex 2.5.4a and 2.5.31.
+------------------------------------------------------------------------
+r11 | vapier | 2007-06-22 00:02:47 -0400 (Fri, 22 Jun 2007) | 1 line
+Changed paths:
+   M /trunk/pcalcl.l
+
+The \".*\" case is duplicated, remove the useless version ;).
+------------------------------------------------------------------------
+r12 | vapier | 2007-06-22 00:03:45 -0400 (Fri, 22 Jun 2007) | 1 line
+Changed paths:
+   M /trunk/pcalc.y
+
+Add support for the -h switch.
+------------------------------------------------------------------------
+r13 | vapier | 2007-06-22 00:34:24 -0400 (Fri, 22 Jun 2007) | 1 line
+Changed paths:
+   M /trunk
+   M /trunk/Makefile
+   D /trunk/pack
+   D /trunk/pcalc
+   D /trunk/pcalc.c
+   D /trunk/pcalc.h
+   D /trunk/pcalc.map
+   D /trunk/pcalc.old
+   D /trunk/pcalc.tab.c
+   D /trunk/pcalc.tab.h
+   D /trunk/pcalc.txt
+   M /trunk/pcalc.y
+   D /trunk/pcalcl.c
+   D /trunk/skelcom.h
+   D /trunk/skeleton.c
+   D /trunk/skeleton.h
+
+punt generated files from svn and cleanup Makefile
+------------------------------------------------------------------------
+r14 | vapier | 2007-06-22 00:46:32 -0400 (Fri, 22 Jun 2007) | 1 line
+Changed paths:
+   M /trunk/Makefile
+   M /trunk/help.c
+   M /trunk/help.h
+   M /trunk/pcalc.y
+   M /trunk/pcalcl.l
+   M /trunk/store.c
+   M /trunk/str.c
+   M /trunk/symbol.c
+
+cleanup warnings from gcc
+------------------------------------------------------------------------
+r15 | vapier | 2007-06-22 00:48:15 -0400 (Fri, 22 Jun 2007) | 1 line
+Changed paths:
+   M /trunk/README
+   M /trunk/help.c
+   M /trunk/pcalc.y
+
+Change operator order so that binary 'or' and binary 'and' are not on the same level, but so that 'and' comes before 'or'.  This is to match the standard C precedence.  Also add support for the % (modulus), < (binary left shift), and > (binary right shift) operators.
+------------------------------------------------------------------------
+r16 | vapier | 2007-06-22 00:49:22 -0400 (Fri, 22 Jun 2007) | 1 line
+Changed paths:
+   M /trunk/help.c
+
+make sure we escape % in printf statement
+------------------------------------------------------------------------
+r17 | vapier | 2007-06-22 02:14:04 -0400 (Fri, 22 Jun 2007) | 1 line
+Changed paths:
+   M /trunk/Makefile
+   M /trunk/ptest
+   A /trunk/ptest/Makefile
+   A /trunk/ptest/local.at
+   M /trunk/ptest/pcalc.001
+   A /trunk/ptest/pcalc.001.at
+   M /trunk/ptest/pcalc.002
+   A /trunk/ptest/pcalc.002.at
+   M /trunk/ptest/pcalc.003
+   A /trunk/ptest/pcalc.003.at
+   M /trunk/ptest/pcalc.004
+   A /trunk/ptest/pcalc.004.at
+   M /trunk/ptest/pcalc.005
+   A /trunk/ptest/pcalc.005.at
+   M /trunk/ptest/pcalc.006
+   A /trunk/ptest/pcalc.006.at
+   M /trunk/ptest/pcalc.007
+   A /trunk/ptest/pcalc.007.at
+   M /trunk/ptest/pcalc.008
+   A /trunk/ptest/pcalc.008.at
+   M /trunk/ptest/pcalc.009
+   A /trunk/ptest/pcalc.009.at
+   M /trunk/ptest/pcalc.010
+   A /trunk/ptest/pcalc.010.at
+   M /trunk/ptest/pcalc.011
+   A /trunk/ptest/pcalc.011.at
+   D /trunk/ptest/pcalc.var
+   A /trunk/ptest/testsuite.at
+   D /trunk/testdat
+   D /trunk/testdata
+   D /trunk/testorig
+
+convert testsuite to autotest
+------------------------------------------------------------------------
+r18 | vapier | 2007-06-22 02:15:06 -0400 (Fri, 22 Jun 2007) | 1 line
+Changed paths:
+   M /trunk/Makefile
+
+fix typo in previous commit (ptest, not test)
+------------------------------------------------------------------------
+r19 | vapier | 2007-10-12 11:05:00 -0400 (Fri, 12 Oct 2007) | 1 line
+Changed paths:
+   M /trunk/ptest/Makefile
+
+fix VERSION detection under `make dist`
+------------------------------------------------------------------------
+r21 | vapier | 2008-01-02 21:52:09 -0500 (Wed, 02 Jan 2008) | 1 line
+Changed paths:
+   M /trunk/pcalc.y
+
+make sure we initialize template file before using it in the error case
+------------------------------------------------------------------------
+r22 | vapier | 2008-01-02 21:52:17 -0500 (Wed, 02 Jan 2008) | 1 line
+Changed paths:
+   M /trunk/Makefile
+
+expand distcheck slightly
+------------------------------------------------------------------------
+r23 | vapier | 2008-01-02 22:02:41 -0500 (Wed, 02 Jan 2008) | 1 line
+Changed paths:
+   M /trunk/pcalc.y
+
+make sure to initialize the buff string before doing strcat on it
+------------------------------------------------------------------------
+r24 | vapier | 2008-01-02 22:09:12 -0500 (Wed, 02 Jan 2008) | 1 line
+Changed paths:
+   M /trunk/Makefile
+
+bump to 1.2
+------------------------------------------------------------------------
+r26 | vapier | 2008-01-02 22:18:23 -0500 (Wed, 02 Jan 2008) | 1 line
+Changed paths:
+   A /trunk/TODO
+
+start a todo list
+------------------------------------------------------------------------
+r27 | vapier | 2008-04-11 02:43:20 -0400 (Fri, 11 Apr 2008) | 1 line
+Changed paths:
+   M /trunk/help.c
+
+explain possible input values
+------------------------------------------------------------------------
+r28 | vapier | 2008-04-11 03:25:00 -0400 (Fri, 11 Apr 2008) | 1 line
+Changed paths:
+   M /trunk/pcalc.y
+   M /trunk/print.c
+
+add support for binary nibble spacing and cleanup long_to_bin_str() in the process
+------------------------------------------------------------------------
+r29 | vapier | 2008-04-14 21:30:39 -0400 (Mon, 14 Apr 2008) | 1 line
+Changed paths:
+   M /trunk/help.c
+   M /trunk/pcalcl.l
+
+change </> to <</>> to match C
+------------------------------------------------------------------------
+r30 | vapier | 2008-04-14 21:31:42 -0400 (Mon, 14 Apr 2008) | 1 line
+Changed paths:
+   M /trunk/pcalcl.l
+
+accept 0b... as a binary prefix to match gcc
+------------------------------------------------------------------------
+r31 | vapier | 2008-04-17 20:18:39 -0400 (Thu, 17 Apr 2008) | 1 line
+Changed paths:
+   M /trunk/TODO
+
+remove done items
+------------------------------------------------------------------------
+r32 | vapier | 2008-04-17 20:24:34 -0400 (Thu, 17 Apr 2008) | 1 line
+Changed paths:
+   M /trunk/pcalc.y
+   M /trunk/pcalcl.l
+
+add support for xor
+------------------------------------------------------------------------
+r33 | vapier | 2008-04-17 20:26:14 -0400 (Thu, 17 Apr 2008) | 1 line
+Changed paths:
+   M /trunk/pcalc.y
+
+add support for negation (~)
+------------------------------------------------------------------------
+r34 | vapier | 2008-04-17 20:28:31 -0400 (Thu, 17 Apr 2008) | 1 line
+Changed paths:
+   M /trunk/help.c
+
+document new operators
+------------------------------------------------------------------------
+r35 | vapier | 2008-04-17 20:31:12 -0400 (Thu, 17 Apr 2008) | 1 line
+Changed paths:
+   M /trunk/Makefile
+
+version bump to pcalc-1.3 and switch to lzma tarballs
+------------------------------------------------------------------------
+r37 | vapier | 2009-11-03 05:45:21 -0500 (Tue, 03 Nov 2009) | 1 line
+Changed paths:
+   M /trunk/pcalc.y
+
+kill off command line limitation by writing directly to the file
+------------------------------------------------------------------------
+r38 | vapier | 2009-12-03 04:58:56 -0500 (Thu, 03 Dec 2009) | 1 line
+Changed paths:
+   M /trunk/ptest/local.at
+
+use m4_define() rather than m4_defun() as we dont need the latters semantics and we avoid build problems with autoconf-2.64+
+------------------------------------------------------------------------
+r39 | vapier | 2009-12-13 00:35:46 -0500 (Sun, 13 Dec 2009) | 1 line
+Changed paths:
+   M /trunk/ptest/local.at
+   M /trunk/ptest/pcalc.001.at
+   M /trunk/ptest/pcalc.002.at
+   M /trunk/ptest/pcalc.003.at
+   M /trunk/ptest/pcalc.004.at
+   M /trunk/ptest/pcalc.005.at
+   M /trunk/ptest/pcalc.006.at
+   M /trunk/ptest/pcalc.007.at
+   M /trunk/ptest/pcalc.008.at
+   M /trunk/ptest/pcalc.009.at
+   M /trunk/ptest/pcalc.010.at
+   M /trunk/ptest/pcalc.011.at
+
+tests: normalize whitespace in test output to ignore thrashing
+------------------------------------------------------------------------
+r40 | vapier | 2009-12-13 01:18:32 -0500 (Sun, 13 Dec 2009) | 1 line
+Changed paths:
+   M /trunk/convert.c
+   M /trunk/convert.h
+   M /trunk/pcalcl.l
+   M /trunk/print.c
+   M /trunk/ptest/pcalc.001.at
+   M /trunk/ptest/pcalc.002.at
+
+switch to 64bit output
+------------------------------------------------------------------------
+r41 | vapier | 2009-12-13 01:19:54 -0500 (Sun, 13 Dec 2009) | 1 line
+Changed paths:
+   A /trunk/ptest/pcalc.012
+   A /trunk/ptest/pcalc.012.at
+   M /trunk/ptest/testsuite.at
+
+simple test for negation operator
+------------------------------------------------------------------------
+r42 | vapier | 2009-12-13 01:28:52 -0500 (Sun, 13 Dec 2009) | 1 line
+Changed paths:
+   M /trunk/pcalcl.l
+   M /trunk/store.c
+
+check return value of fgets/fwrite to avoid gcc warnings
+------------------------------------------------------------------------
+r43 | vapier | 2009-12-13 01:45:39 -0500 (Sun, 13 Dec 2009) | 1 line
+Changed paths:
+   M /trunk/store.c
+
+fix logic error in previous fgets commit
+------------------------------------------------------------------------
+r44 | vapier | 2009-12-13 01:46:22 -0500 (Sun, 13 Dec 2009) | 1 line
+Changed paths:
+   M /trunk/Makefile
+
+version bump to version 2
+------------------------------------------------------------------------
+r45 | vapier | 2009-12-13 02:00:13 -0500 (Sun, 13 Dec 2009) | 1 line
+Changed paths:
+   M /trunk/ptest/local.at
+   M /trunk/ptest/pcalc.010.at
+   M /trunk/ptest/testsuite.at
+
+get pcalc.010 working
+------------------------------------------------------------------------
+r46 | vapier | 2009-12-13 02:16:11 -0500 (Sun, 13 Dec 2009) | 1 line
+Changed paths:
+   M /trunk/pcalc.y
+
+tighten up version output
+------------------------------------------------------------------------

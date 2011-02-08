@@ -1,0 +1,5 @@
+m4_define([AT_PACKAGE_NAME],      [pcalc])
+m4_define([AT_PACKAGE_TARNAME],   [pcalc])
+m4_define([AT_PACKAGE_VERSION],   [2])
+m4_define([AT_PACKAGE_STRING],    [pcalc 2])
+m4_define([AT_PACKAGE_BUGREPORT], [pcalc-devel@lists.sourceforge.net])

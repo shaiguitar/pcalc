@@ -1,0 +1,18 @@
+PCALC_SIMPLE_AT_CHECK([008], [dnl
+
+Hello world1 with 2 newlines.
+
+
+Hello world2 with tabs a b c d e
+
+
+Number is displayed normally:
+
+ 99 0x63 0y1100011
+
+Number is displayed as DEC, HEX, BIN:
+
+Number: 99 is displayed in line as decimal.
+Number: 63 is displayed in line as hex.
+Number: 1100011 is displayed in line as binary.
+])

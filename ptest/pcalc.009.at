@@ -1,0 +1,5 @@
+PCALC_SIMPLE_AT_CHECK([009], [dnl
+a a b c
+
+WEEEE
+])

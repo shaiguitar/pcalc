@@ -1,0 +1,2 @@
+- try to handle unsigned/signed better
+- convert to 64bit numbers
